@@ -47,7 +47,7 @@
                 onload: function(res) {
                     const htmlText = res.responseText;
 
-                    // 1. 文字列からURLを抽出（元々の正常動作ロジック）
+                    // 1. 文字列からURLを抽出
                     const regex = new RegExp("https?://" + targetSiteDomain + "/image/[\\w\\d]+", 'i');
                     const foundMatch = htmlText.match(regex);
                     let imagePageUrl = foundMatch ? foundMatch[0] : null;
@@ -78,7 +78,7 @@
                 const doc2 = new DOMParser().parseFromString(res2.responseText, "text/html");
                 const allImgs = Array.from(doc2.querySelectorAll('img'));
 
-                // 【修正】「/images/」を含み、かつシステム系でないものを探す
+                // 「/images/」を含み、かつシステム系でないものを探す
                 const finalImg = allImgs.find(img => {
                     const src = img.getAttribute('src') || "";
                     // 除外：システムディレクトリ、ロゴ、または空のsrc
