@@ -60,10 +60,10 @@
                     }
 
                     if (imagePageUrl) {
-                        statusText.innerText = "🚀 Fetching Final Image...";
+                        statusText.innerText = "画像を取得中です…";
                         fetchStep2(imagePageUrl.replace(/&amp;/g, '&'));
                     } else {
-                        statusText.innerText = "❌ Error: Link to Cover Site not found";
+                        statusText.innerText = "リンクが見つかりませんでした。時間を置いてやり直してみてください。";
                     }
                 }
             });
@@ -99,7 +99,7 @@
                         previewImg.style.display = 'block';
                     };
                 } else {
-                    statusText.innerText = "❌ Error: Target image not found";
+                    statusText.innerText = "画像が見つかりませんでした。";
                 }
             }
         });
